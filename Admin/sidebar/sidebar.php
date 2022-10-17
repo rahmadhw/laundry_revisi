@@ -79,12 +79,6 @@ if ($pos !== false) $addPelangganBeli = true;
 
        
 
-        <li class="nav-item <?php echo(isset($is_password_cahnge)?' active' : '')?>" data-toggle="tooltip" data-placement="right" title="Change Password">
-          <a class="nav-link" href="change_password.php">
-            <i class="fa fa-fw fa-lock"></i>
-            <span class="nav-link-text">Change Password</span>
-          </a>
-        </li>
 
       
         
