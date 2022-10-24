@@ -55,7 +55,33 @@ $pecah2 = $proses->showUser();
 
                 <div class="form-group">
                   <label for="">Jumlah Kiloan</label>
-                  <input type="number" class="form-control" id="jumlah_kiloan" name="jumlah_kiloan">
+                  <!-- <input type="number" class="form-control" id="jumlah_kiloan" name="jumlah_kiloan"> -->
+                  <?php 
+
+                    $dataJumlah = [
+
+                        "1kg" => 5000,
+                        "1,1 kg " => 5500,
+                        "1.2 kg " => 6000,
+                        "1.3 kg " => 6500,
+                        "1.4 kg " => 7000,
+                        "1.5 kg " => 7500,
+                        "1.6 kg " => 8000,
+                        "1.7 kg " => 8500,
+                        "1.8 kg " => 9000,
+                        "1.9 kg " => 9500,
+                        "2 kg " => 10000
+                   
+                    ];
+
+                  
+                  ?>
+                  <select name="jumlah_kiloan" id="jumlah_kiloan" class="form-control">
+                     <option value="" class="form-control">---</option>
+                  <?php foreach ($dataJumlah as $ds => $value) : ?>
+                    <option value="<?= $value ?>" class="form-control"><?= $ds?></option>
+                  <?php endforeach; ?>
+                  </select>
                 </div>
 
                 <div class="form-group">
@@ -193,17 +219,17 @@ $pecah2 = $proses->showUser();
               url: "tampil.php",
               success: function(hasil){
                 $("#change").html(hasil);
-                $("#jumlah_kiloan").keyup(function() {
+                $("#jumlah_kiloan").change(function() {
                       var pilih = $("#cuciandgosok").val(); 
                       var jml = $("#jumlah_kiloan").val();
-                      var total = parseInt(pilih) * parseInt(jml);
+                      var total = parseInt(pilih) + parseInt(jml);
                       if (!isNaN(total)) {
                         $("#total").val(total);
                        
 
                         $("#cuciandgosok").change(function(e) {
                           var pilih = e.target.value;
-                          var total = parseInt(pilih) * parseInt(jml);
+                          var total = parseInt(pilih) + parseInt(jml);
                           $("#total").val(total);
                         })
 
